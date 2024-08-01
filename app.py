@@ -48,11 +48,6 @@ def main():
             answer = answer_generation_chain.run(question)
             st.write("Answer: ", answer)
             st.write("--------------------------------------------------\\n\\n")
-            # Save answer to file
-            # with open("answers.txt", "a") as f:
-            #     f.write("Question: " + question + "\\n")
-            #     f.write("Answer: " + answer + "\\n")
-            #     f.write("--------------------------------------------------\\n\\n")
 
 if __name__ == "__main__":
     main()
