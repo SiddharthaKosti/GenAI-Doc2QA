@@ -32,9 +32,27 @@ def main():
     st.title("GenAI-Doc2QA")
     st.divider()
     uploaded_file = st.file_uploader("Upload a file here: ", type=["pdf"])
-    st.sidebar.image("data/Designer.png", width=285, caption="This project is developed by: Siddhartha Kosti")
+    st.sidebar.image("data/Designer.png", width=285, caption="GenAI-Doc2QA")
     n = st.sidebar.text_input("Enter the number of Q/A pairs required")
-    
+    st.markdown(
+        """
+        <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffe5ec;
+            color: black;
+            text-align: center;
+        }
+        </style>
+        <div class="footer">
+            <p>Made with ❤️ by Siddhartha Kosti</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     if uploaded_file is not None:
 
         st.subheader(""":blue[File is uploaded successfully] :blossom:""")
