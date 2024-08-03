@@ -1,18 +1,18 @@
-prompt_template = """
-You are an expert at creating questions based on coding materials and documentation.
-Your goal is to prepare a coder or programmer for their exam and coding tests.
-You do this by asking questions about the text below:
+def prompt_template(n):
+    return f"""
+    You are an expert in creating questions given a document.
+    Your goal is to prepare a set of question:
 
-------------
-{text}
-------------
+    ------------
+    {{text}}
+    ------------
 
-Create questions that will prepare the coders or programmers for their tests.
-Make sure not to lose any important information.
-Only create 5 questions.
+    Create questions that will prepare the coders or programmers for their tests.
+    Make sure not to lose any important information.
+    Only create {n} questions.
 
-QUESTIONS:
-"""
+    QUESTIONS:
+    """
 
 refine_template = ("""
 You are an expert at creating practice questions based on coding material and documentation.

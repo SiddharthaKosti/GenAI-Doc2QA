@@ -46,15 +46,14 @@ def get_ques_ans_from_pdf(filename):
     return document_ques_gen, document_answer_gen
 
 
-def llm_pipeline(filename):
+def llm_pipeline(filename, n):
     document_ques_gen, document_answer_gen = get_ques_ans_from_pdf(filename)
 
     llm_ques_gen_pipeline = ChatOpenAI(
     model = 'gpt-4o-mini',
     temperature = 0.3
     )
-
-    PROMPT_QUESTIONS = PromptTemplate(template=prompt_template, input_variables=['text'])
+    PROMPT_QUESTIONS = PromptTemplate(template=prompt_template(n), input_variables=['text'])
 
     REFINE_PROMPT_QUESTIONS = PromptTemplate(
     input_variables=["existing_answer", "text"],
