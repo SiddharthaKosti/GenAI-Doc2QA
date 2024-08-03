@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 
 4.  Set up your environment variables:
-create a .ev file having the following
+create one .env file having the following
 ```
 OPENAI_API_KEY=your_openai_api_key
 ```
