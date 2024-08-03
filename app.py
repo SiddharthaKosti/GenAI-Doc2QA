@@ -32,7 +32,9 @@ def main():
     st.title("GenAI-Doc2QA")
     st.divider()
     uploaded_file = st.file_uploader("Upload a file here: ", type=["pdf"])
-
+    st.sidebar.image(r"data\Designer.png", width=285, caption="This project is developed by: Siddhartha Kosti")
+    n = st.sidebar.text_input("Enter the number of Q/A pairs required")
+    
     if uploaded_file is not None:
 
         st.subheader(""":blue[File is uploaded successfully] :blossom:""")
@@ -45,8 +47,7 @@ def main():
         # Get the file path
         file_path = os.path.join("temp_files", uploaded_file.name)
 
-        st.sidebar.image(r"data\Designer.png", width=285, caption="Developed by: Siddhartha Kosti")
-        n = st.sidebar.text_input("Enter the number of Q/A pairs required")
+        
 
         if n:
             answer_generation_chain, ques_list = llm_pipeline(file_path, n)
