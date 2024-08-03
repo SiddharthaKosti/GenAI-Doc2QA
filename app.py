@@ -28,9 +28,14 @@ def check_if_pdf(uploaded_file):
         st.write("Uploaded file is not a PDF. Please choose a PDF file.")
 
 def main():
-    uploaded_file = st.file_uploader("Choose a file", type=["pdf"])
+
+    st.title("GenAI-Doc2QA")
+    st.divider()
+    uploaded_file = st.file_uploader("Upload a file here: ", type=["pdf"])
 
     if uploaded_file is not None:
+
+        st.subheader(""":blue[File is uploaded successfully] :blossom:""")
         #create a temporary dir
         run_temp_dir()
 
@@ -40,14 +45,17 @@ def main():
         # Get the file path
         file_path = os.path.join("temp_files", uploaded_file.name)
 
-        answer_generation_chain, ques_list = llm_pipeline(file_path)
+        st.sidebar.image(r"data\Designer.png", width=285, caption="Developed by: Siddhartha Kosti")
+        n = st.sidebar.text_input("Enter the number of Q/A pairs required")
 
-        # st.write(ques_list)
-        for question in ques_list:
-            st.write("Question: ", question)
-            answer = answer_generation_chain.run(question)
-            st.write("Answer: ", answer)
-            st.write("--------------------------------------------------\\n\\n")
+        if n:
+            answer_generation_chain, ques_list = llm_pipeline(file_path, n)
+
+            # st.write(ques_list)
+            for question in ques_list:
+                answer = answer_generation_chain.run(question)
+                st.info(f"Question: {question}\n\n Answer: {answer}")
+            # st.write("--------------------------------------------------\\n\\n")
 
 if __name__ == "__main__":
     main()
