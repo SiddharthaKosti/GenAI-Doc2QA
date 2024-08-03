@@ -36,7 +36,7 @@ OPENAI_API_KEY=your_openai_api_key
 ## Usage
 1.  Run the Streamlit application:
 ```
-streamlit run main.py
+streamlit run app.py
 ```
 
 2.  Open your web browser and navigate to http://localhost:8501.
