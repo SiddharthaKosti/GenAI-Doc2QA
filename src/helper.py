@@ -11,11 +11,9 @@ from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 
 from src.prompt import *
-# Load environment variables from .env file
 
 dotenv.load_dotenv()
 
-# Set up OpenAI model
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
@@ -48,7 +46,7 @@ def get_ques_ans_from_pdf(filename):
     return document_ques_gen, document_answer_gen
 
 
-def llm_pipeline(filename)
+def llm_pipeline(filename):
     document_ques_gen, document_answer_gen = get_ques_ans_from_pdf(filename)
 
     llm_ques_gen_pipeline = ChatOpenAI(
