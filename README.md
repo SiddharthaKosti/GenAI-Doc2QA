@@ -2,6 +2,8 @@
 
 GenAI-Doc2QA is a Streamlit application that allows users to upload PDF documents and generate questions and answers from the content. This application leverages OpenAI's GPT-4o-mini model to generate relevant questions/answers pairs.
 
+![Alt text](data/ss.png)
+
 ## Features
 
 - Upload PDF document
