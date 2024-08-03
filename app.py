@@ -66,15 +66,14 @@ def main():
         file_path = os.path.join("temp_files", uploaded_file.name)
 
         
-
+        st.divider()
         if n:
             answer_generation_chain, ques_list = llm_pipeline(file_path, n)
-
-            # st.write(ques_list)
+            st.header("Question-Answer:")
             for question in ques_list:
                 answer = answer_generation_chain.run(question)
                 st.info(f"Question: {question}\n\n Answer: {answer}")
-            # st.write("--------------------------------------------------\\n\\n")
+
 
 if __name__ == "__main__":
     main()
