@@ -32,7 +32,7 @@ def main():
     st.title("GenAI-Doc2QA")
     st.divider()
     uploaded_file = st.file_uploader("Upload a file here: ", type=["pdf"])
-    st.sidebar.image(r"data\Designer.png", width=285, caption="This project is developed by: Siddhartha Kosti")
+    st.sidebar.image("data/Designer.png", width=285, caption="This project is developed by: Siddhartha Kosti")
     n = st.sidebar.text_input("Enter the number of Q/A pairs required")
     
     if uploaded_file is not None:
