@@ -4,7 +4,7 @@ import shutil
 import dotenv
 import asyncio
 import aiofiles
-from src.helper_async import async_llm_pipeline
+from src.helper import async_llm_pipeline
 
 dotenv.load_dotenv()
 
@@ -33,7 +33,25 @@ async def main():
     st.sidebar.image("data/Designer.png", width=285, caption="GenAI-Doc2QA")
     n = st.sidebar.text_input("Enter the number of Q/A pairs required")
     
-    # Footer code remains unchanged
+    st.markdown(
+        """
+        <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffe5ec;
+            color: black;
+            text-align: center;
+        }
+        </style>
+        <div class="footer">
+            <p>Made with ❤️ by Siddhartha Kosti</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     if uploaded_file is not None:
         st.subheader(""":blue[File is uploaded successfully] :blossom:""")
